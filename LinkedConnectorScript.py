@@ -1,7 +1,5 @@
 from selenium.webdriver.common.keys import Keys
 import pyautogui as pag
-
-
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 import time
@@ -17,8 +15,12 @@ def main():
     
     password = driver.find_element_by_name("session_password")
     password.send_keys('Your Password here')
+    driver.get(url)
+    username = driver.find_element_by_name("session_key")
+    username.send_keys('Your Email')
     
-    # Getting the tag for submit button
+    password = driver.find_element_by_name("session_password")
+    password.send_keys('Your Password')
     driver.find_element_by_class_name("sign-in-form__submit-button").click()
     print('successfully logged in')
     
@@ -28,7 +30,6 @@ def main():
         if k is 5:
             time.sleep(5)
             pag.click(1273, 322)
-
         x = 960
         y = 470
         for i in range(0, 8):
@@ -47,5 +48,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
